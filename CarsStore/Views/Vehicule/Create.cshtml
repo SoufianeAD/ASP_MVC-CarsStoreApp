@@ -1,0 +1,119 @@
+﻿@model CarsStore.Models.Vehicule
+
+
+<script>
+    function changeMainPicture(image, inputFile) {
+        var imageElem = document.getElementById(image);
+        var fileInputElem = document.getElementById(inputFile);
+        var value = fileInputElem.value;
+        if (value != "") {
+            var src = value.split("\\")[2];
+            src = "/resources/vehicules/" + src;
+            console.log('valeur = ' + src);
+            imageElem.src = src + "";
+        }
+    }
+
+</script>
+
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Vehicule</h4>
+            <hr />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <button type="button" class="btn" onclick=" document.getElementById('mainFileInput').click();">
+                            <img src="~/resources/pictures/no_image.jpg" id="mainPicture" class="" style="width: 334px; height: 218px;" />
+                            <input id="mainFileInput" type="file" class="form-control" name="mainPicture" hidden onchange="changeMainPicture('mainPicture', 'mainFileInput')" />
+                        </button>
+                        <div style="display: inline-block" class="ml-2">
+                            <div class="row">
+                                <button type="button" class="btn m-2" style="display: inline-block;" onclick=" document.getElementById('fileInput1').click();">
+                                    <img src="~/resources/pictures/no_image.jpg" id="picture1" class="" style="width: 145px; height: 110px;" />
+                                    <input type="file" id="fileInput1" class="form-control" name="picture1" hidden onchange="changeMainPicture('picture1', 'fileInput1')" />
+                                </button>
+                                <button type="button" class="btn m-2" style="display: inline-block;" onclick="document.getElementById('fileInput2').click();">
+                                    <img src="~/resources/pictures/no_image.jpg" id="picture2" class="" style="width: 145px; height: 110px;" />
+                                    <input type="file" id="fileInput2" class="form-control" name="picture2" hidden onchange="changeMainPicture('picture2', 'fileInput2')"/>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn m-2" style="display: inline-block;" onclick="document.getElementById('fileInput3').click();">
+                                    <img src="~/resources/pictures/no_image.jpg" id="picture3" class="" style="width: 145px; height: 110px;" />
+                                    <input type="file" id="fileInput3" class="form-control" name="picture3" hidden onchange="changeMainPicture('picture3', 'fileInput3')"/>
+                                </button>
+                                <button type="button" class="btn m-2" style="display: inline-block;" onclick="document.getElementById('fileInput4').click();">
+                                    <img src="~/resources/pictures/no_image.jpg" id="picture4" class="" style="width: 145px; height: 110px;" />
+                                    <input type="file" id="fileInput4" class="form-control" name="picture4" hidden onchange="changeMainPicture('picture4', 'fileInput4')" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <h2 class="ml-3">New vehicule</h2>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Power, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Power, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Power, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Engine, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Engine, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Engine, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CarsStore.Models.Vehicule>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+
+    <div class="card mx-auto mb-3" style="width: 60%;">
+        <div class="card-body">
+           <div class="row">
+               <div class="col">
+                   <img src="@Url.Content(String.Format("~/resources/vehicules/{0}", item.MainPicture))" style="width: 150px; height: 120px;" class="rounded"/>
+               </div>
+               <div class="col mt-3">
+                   <h6><b>Company : </b>@item.Company</h6>
+                   <h6><b>Model : </b>@item.Model</h6>
+                   <h6><b>Engine : </b>@item.Engine</h6>
+               </div>
+               <div class="col mt-3">
+                   <h6><b>Power : </b>@item.Power hr</h6>
+                   <h6><b>Price : </b>@item.Price €</h6>
+                   @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                   @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                   @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+               </div>
+           </div>
+        </div>
+    </div>
+
+
+}
+
+</table>
