@@ -1,0 +1,41 @@
+﻿@model CarsStore.Models.Client
+
+    <div class="container col-md-7">
+        <h4>Client details</h4>
+        
+        <div class="row border rounded">
+            <div class="col-5 p-2">
+                <img src="@Url.Content(String.Format("~/resources/clients/{0}", Model.Picture))" style="width: 200px; height: 200px;" class="rounded" />
+            </div>
+            <div class="col align-self-center p-2">
+                <table class="p-2 mb-2">
+                    <tr class="">
+                        <td class="font-weight-bold">First name</td>
+                        <td class="">@Model.FirstName</td>
+                    </tr>
+                    <tr class="">
+                        <td class="font-weight-bold">Last name</td>
+                        <td>@Model.LastName</td>
+                    </tr>
+                    <tr class="">
+                        <td class="font-weight-bold">Adress</td>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr class="">
+                        <td class="font-weight-bold">Phone</td>
+                        <td>@Model.Phone</td>
+                    </tr>
+                    <tr class="">
+                        <td class="font-weight-bold">Email</td>
+                        <td>@ViewBag.email</td>
+                    </tr>
+                </table>
+                <p class="text-center">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+
+    </div>
+

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace CarsStore.Controllers
 {
+    using Models;
     public class PublicationController : Controller
     {
         Model1 db = new Model1();
@@ -19,23 +20,29 @@ namespace CarsStore.Controllers
         // GET: Publication/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(db.Publications.Find(id));
         }
 
         // GET: Publication/Create
         public ActionResult Create()
         {
+            ViewBag.vehicules = db.Vehicules;
+            //ViewBag.vehicule = db.Vehicules.Find(6);
             return View();
         }
 
         // POST: Publication/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Publication publication, int vehiculeId)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                ViewBag.vehicules = db.Vehicules;
+                publication.PublishDate = DateTime.Now;
+                publication.Status = "Open";
+                publication.Vehicule = db.Vehicules.Find(vehiculeId);
+                db.Publications.Add(publication);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -47,7 +54,7 @@ namespace CarsStore.Controllers
         // GET: Publication/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(db.Publications.Find(id));
         }
 
         // POST: Publication/Edit/5
@@ -69,7 +76,7 @@ namespace CarsStore.Controllers
         // GET: Publication/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(db.Publications.Find(id));
         }
 
         // POST: Publication/Delete/5

@@ -17,6 +17,7 @@ namespace CarsStore.Models
         public string Address { get; set; }
         [Required]
         public string Phone { get; set; }
+        public string Picture { get; set; }
         public string IdAccount { get; set; }
     }
 }

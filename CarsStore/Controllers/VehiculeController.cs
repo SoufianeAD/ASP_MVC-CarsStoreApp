@@ -20,8 +20,11 @@ namespace CarsStore.Controllers
         // GET: Vehicule/Details/5
         public ActionResult Details(int id)
         {
-            Vehicule v = db.Vehicules.Find(id);
-            return View(db.Vehicules.Find(id));
+            Vehicule vehicule = db.Vehicules.Find(id);
+            Char[] sep = { ';' };
+            String[] res = vehicule.Pictures.Split(sep);
+            ViewData["pictures"] = res;
+            return View(vehicule);
         }
 
         // GET: Vehicule/Create
@@ -36,10 +39,10 @@ namespace CarsStore.Controllers
         {
             try
             {
-                vehicule.Pictures.Add(picture1);
-                vehicule.Pictures.Add(picture2);
-                vehicule.Pictures.Add(picture3);
-                vehicule.Pictures.Add(picture4);
+                vehicule.Pictures = picture1;
+                vehicule.Pictures += ";" + picture2;
+                vehicule.Pictures += ";" + picture3;
+                vehicule.Pictures += ";" + picture4;
                 db.Vehicules.Add(vehicule);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -53,17 +56,70 @@ namespace CarsStore.Controllers
         // GET: Vehicule/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Vehicule vehicule = db.Vehicules.Find(id);
+            Char[] sep = { ';' };
+            String[] res = vehicule.Pictures.Split(sep);
+            ViewBag.pictures = res;
+            return View(db.Vehicules.Find(id));
         }
 
         // POST: Vehicule/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Vehicule vehicule, string mainPicture, string picture1, string picture2, string picture3, string picture4)
         {
             try
             {
-                // TODO: Add update logic here
+                Vehicule v = db.Vehicules.Find(id);
+                //
+                v.Company = vehicule.Company;
+                v.Model = vehicule.Model;
+                v.Power = vehicule.Power;
+                v.Price = vehicule.Price;
+                v.Engine = vehicule.Engine;
+                //
+                if(mainPicture != "")
+                {
+                    v.MainPicture = mainPicture;
+                } 
+                //
+                Char[] sep = { ';' };
+                String[] res = v.Pictures.Split(sep);
+                if(picture1 != "")
+                {
+                    v.Pictures = picture1;
+                } else
+                {
+                    v.Pictures = res[0];
+                }
 
+                if (picture2 != "")
+                {
+                    v.Pictures += ";" + picture2;
+                }
+                else
+                {
+                    v.Pictures += ";" + res[1];
+                }
+
+                if (picture3 != "")
+                {
+                    v.Pictures += ";" + picture3;
+                }
+                else
+                {
+                    v.Pictures += ";" + res[2];
+                }
+
+                if (picture4 != "")
+                {
+                    v.Pictures += ";" + picture4;
+                }
+                else
+                {
+                    v.Pictures += ";" + res[3];
+                }
+
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -75,7 +131,11 @@ namespace CarsStore.Controllers
         // GET: Vehicule/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Vehicule vehicule = db.Vehicules.Find(id);
+            Char[] sep = { ';' };
+            String[] res = vehicule.Pictures.Split(sep);
+            ViewData["pictures"] = res;
+            return View(db.Vehicules.Find(id));
         }
 
         // POST: Vehicule/Delete/5
@@ -84,8 +144,8 @@ namespace CarsStore.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                db.Vehicules.Remove(db.Vehicules.Find(id));
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

@@ -101,9 +101,11 @@ E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\bin\Microsoft.Owin.Se
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\bin\Microsoft.Owin.Security.OAuth.xml
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.csprojAssemblyReference.cache
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.csproj.CopyComplete
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.dll
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.pdb
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.Migrations.Model1.resources
 E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.csproj.GenerateResource.cache
+E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.csprojAssemblyReference.cache
+E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.Migrations.Model11.resources
+E:\ESISA\4 eme\S2\ASP\CarsStoreProject\CarsStore\CarsStore\obj\Debug\CarsStore.Migrations.Model12.resources

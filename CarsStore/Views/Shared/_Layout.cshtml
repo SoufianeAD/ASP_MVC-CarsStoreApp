@@ -9,27 +9,30 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <img src="~/resources/pictures/canvas.png" class="" style="width: 100%; margin-top: -50px; height: 100px;" />
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="">Cars Store</a>
+        
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="#"></a>
+                </li>
+            </ul>
+            <span class="navbar-text">
                 @Html.Partial("_LoginPartial")
-            </div>
+            </span>
         </div>
-    </div>
-    <div class="container body-content">
+    </nav>
+
+    <div class="container body-content p-3">
         @RenderBody()
         <hr />
         <footer>

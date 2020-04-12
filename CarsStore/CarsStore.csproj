@@ -184,6 +184,14 @@
     <Compile Include="Migrations\202003291559364_Model1.Designer.cs">
       <DependentUpon>202003291559364_Model1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003302224491_Model11.cs" />
+    <Compile Include="Migrations\202003302224491_Model11.Designer.cs">
+      <DependentUpon>202003302224491_Model11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004051340127_Model12.cs" />
+    <Compile Include="Migrations\202004051340127_Model12.Designer.cs">
+      <DependentUpon>202004051340127_Model12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -209,6 +217,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="resources\clients\index2.png" />
+    <Content Include="resources\clients\mhidoart.jpg" />
+    <Content Include="resources\clients\ouj9.jpg" />
+    <Content Include="resources\clients\oussama.jpg" />
+    <Content Include="resources\pictures\canvas.png" />
+    <Content Include="resources\pictures\carlogo.png" />
     <Content Include="resources\pictures\no_image.jpg" />
     <Content Include="resources\vehicules\glc-1.jpg" />
     <Content Include="resources\vehicules\glc-2.jpg" />
@@ -309,10 +323,26 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Vehicule\Index.cshtml" />
     <Content Include="Views\Vehicule\Details.cshtml" />
+    <Content Include="Views\Vehicule\Edit.cshtml" />
+    <Content Include="Views\Vehicule\Delete.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Publication\Details.cshtml" />
+    <Content Include="Views\Publication\Create.cshtml" />
+    <Content Include="Views\Publication\Edit.cshtml" />
+    <Content Include="Views\Publication\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003291559364_Model1.resx">
       <DependentUpon>202003291559364_Model1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003302224491_Model11.resx">
+      <DependentUpon>202003302224491_Model11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004051340127_Model12.resx">
+      <DependentUpon>202004051340127_Model12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

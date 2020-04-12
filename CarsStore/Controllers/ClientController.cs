@@ -16,13 +16,16 @@ namespace CarsStore.Controllers
         // GET: Client
         public ActionResult Index()
         {
-            return View();
+            return View(db.Clients);
         }
 
         // GET: Client/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Client client = db.Clients.Find(id);
+            ApplicationUser user = db0.Users.First(item => item.Id == client.IdAccount);
+            ViewBag.email = user.Email;
+            return View(client);
         }
 
         // GET: Client/Create
@@ -53,17 +56,25 @@ namespace CarsStore.Controllers
         // GET: Client/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(db.Clients.Find(id));
         }
 
         // POST: Client/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Client client)
         {
             try
             {
-                // TODO: Add update logic here
-
+                Client c = db.Clients.Find(id);
+                c.FirstName = client.FirstName;
+                c.LastName = client.LastName;
+                c.Address = client.Address;
+                c.Phone = client.Phone;
+                if(client.Picture != null)
+                {
+                    c.Picture = client.Picture;
+                }
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -75,7 +86,7 @@ namespace CarsStore.Controllers
         // GET: Client/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(db.Clients.Find(id));
         }
 
         // POST: Client/Delete/5

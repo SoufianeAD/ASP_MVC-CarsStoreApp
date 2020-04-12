@@ -1,0 +1,135 @@
+﻿@model CarsStore.Models.Publication
+
+<script>
+    function chooseVehicule(id, price, company, model, engine, power, mainPicture) {
+        var inputVehiculeId = document.getElementById('vehiculeId');
+        var divVehicule = document.getElementById('vehicule');
+
+        inputVehiculeId.value = id;
+        divVehicule.style = "";
+
+        document.getElementById('vehiculePicture').src = mainPicture;
+        document.getElementById('company').innerText = " " + company;
+        document.getElementById('model').innerText = " " + model;
+        document.getElementById('engine').innerText = " " + engine;
+        document.getElementById('power').innerText = " " + power;
+        document.getElementById('price').innerText = " " + price;
+    }
+</script>
+
+<div class="container col-md-10">
+    <div class="mb-5">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target=".bd-example-modal-lg">Choose vehicule</button>
+        <input type="number" name="vehiculeId" id="vehiculeId" class="form-control" value="6"  />
+
+        <div class="card mb-3 mt-3 w-75" id="vehicule" style="display: none;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <img src="" id="vehiculePicture" style="width: 150px; height: 120px;" class="rounded" />
+                    </div>
+                    <div class="col mt-3">
+                        <h6 style="display: inline-block;"><b>Company : </b></h6>
+                        <h6 id="company" style="display: inline-block;"></h6>
+                        <br />
+
+                        <h6 style="display: inline-block;"><b>Model : </b></h6>
+                        <h6 id="model" style="display: inline-block;"></h6>
+                        <br />
+
+                        <h6 style="display: inline-block;"><b>Engine : </b></h6>
+                        <h6 id="engine" style="display: inline-block;"></h6>
+                    </div>
+                    <div class="col mt-3">
+                        <h6 style="display: inline-block;"><b>Power : </b></h6>
+                        <h6 id="power" style="display: inline-block;"></h6>
+                        <br />
+
+                        <h6 style="display: inline-block;"><b>Price : </b></h6>
+                        <h6 id="price" style="display: inline-block;"></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+
+
+
+    }
+</div>
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Choose a vehicule</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                @foreach (var item in ViewBag.vehicules)
+                {
+                    <div class="card mx-auto mb-3" style="width: 80%;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <img id="@item.Id mainPicture" src="@Url.Content(String.Format("~/resources/vehicules/{0}", item.MainPicture))" style="width: 150px; height: 120px;" class="rounded" />
+                                </div>
+                                <div class="col mt-3">
+                                    <h6 style="display: inline-block;"><b>Company : </b></h6>
+                                    <h6 id="@item.Id company" style="display: inline-block;">@item.Company</h6>
+                                    <br />
+
+                                    <h6 style="display: inline-block;"><b>Model : </b></h6>
+                                    <h6 id="@item.Id model" style="display: inline-block;">@item.Model</h6>
+                                    <br />
+
+                                    <h6 style="display: inline-block;"><b>Engine : </b></h6>
+                                    <h6 id="@item.Id engine" style="display: inline-block;">@item.Engine</h6>
+                                </div>
+                                <div class="col mt-3">
+                                    <h6 style="display: inline-block;"><b>Power : </b></h6>
+                                    <h6 id="@item.Id power" style="display: inline-block;">@item.Power hr</h6>
+                                    <br />
+
+                                    <h6 style="display: inline-block;"><b>Price : </b></h6>
+                                    <h6 id="@item.Id price" style="display: inline-block;">@item.Price €</h6>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close"
+                                            onclick="chooseVehicule(@item.Id, @item.Price,
+                                                        document.getElementById(@item.Id + ' company').innerText,
+                                                        document.getElementById(@item.Id + ' model').innerText,
+                                                        document.getElementById(@item.Id + ' engine').innerText,
+                                                        document.getElementById(@item.Id + ' power').innerText,
+                                                        document.getElementById(@item.Id + ' mainPicture').src)">
+                                        Choose
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

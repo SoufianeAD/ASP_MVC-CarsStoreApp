@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<CarsStore.Models.Vehicule>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href="@Url.Action("Create", "Vehicule")" class="btn btn-primary mt-5">Create</a>
+   
 
 @foreach (var item in Model)
 {
@@ -32,4 +31,3 @@
 
 }
 
-</table>
