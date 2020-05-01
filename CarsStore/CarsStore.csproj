@@ -192,6 +192,22 @@
     <Compile Include="Migrations\202004051340127_Model12.Designer.cs">
       <DependentUpon>202004051340127_Model12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004131334087_Model13.cs" />
+    <Compile Include="Migrations\202004131334087_Model13.Designer.cs">
+      <DependentUpon>202004131334087_Model13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004131346428_Model14.cs" />
+    <Compile Include="Migrations\202004131346428_Model14.Designer.cs">
+      <DependentUpon>202004131346428_Model14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004181547299_Model15.cs" />
+    <Compile Include="Migrations\202004181547299_Model15.Designer.cs">
+      <DependentUpon>202004181547299_Model15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004201425476_Model16.cs" />
+    <Compile Include="Migrations\202004201425476_Model16.Designer.cs">
+      <DependentUpon>202004201425476_Model16.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -214,7 +230,10 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="resources\clients\index2.png" />
@@ -234,6 +253,11 @@
     <Content Include="resources\vehicules\golf7-3.jpg" />
     <Content Include="resources\vehicules\golf7-4.jpg" />
     <Content Include="resources\vehicules\golf7-5.jpg" />
+    <Content Include="resources\vehicules\Mercedes-A-2.jpg" />
+    <Content Include="resources\vehicules\Mercedes-A-3.jpg" />
+    <Content Include="resources\vehicules\Mercedes-A-4.jpg" />
+    <Content Include="resources\vehicules\Mercedes-A-5.jpg" />
+    <Content Include="resources\vehicules\Mercedes-A.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -256,6 +280,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -310,7 +339,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
-    <Content Include="Views\Publication\Index.cshtml" />
     <Content Include="Views\Vehicule\Create.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -329,10 +357,13 @@
     <Content Include="Views\Client\Details.cshtml" />
     <Content Include="Views\Client\Edit.cshtml" />
     <Content Include="Views\Client\Delete.cshtml" />
-    <Content Include="Views\Publication\Details.cshtml" />
     <Content Include="Views\Publication\Create.cshtml" />
-    <Content Include="Views\Publication\Edit.cshtml" />
+    <Content Include="Views\Publication\Index.cshtml" />
+    <Content Include="Views\Publication\Details.cshtml" />
     <Content Include="Views\Publication\Delete.cshtml" />
+    <Content Include="Views\Publication\IndexClient.cshtml" />
+    <Content Include="Views\Publication\DetailsClient.cshtml" />
+    <Content Include="Views\Publication\IndexAchat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003291559364_Model1.resx">
@@ -343,6 +374,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004051340127_Model12.resx">
       <DependentUpon>202004051340127_Model12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131334087_Model13.resx">
+      <DependentUpon>202004131334087_Model13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131346428_Model14.resx">
+      <DependentUpon>202004131346428_Model14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004181547299_Model15.resx">
+      <DependentUpon>202004181547299_Model15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004201425476_Model16.resx">
+      <DependentUpon>202004201425476_Model16.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

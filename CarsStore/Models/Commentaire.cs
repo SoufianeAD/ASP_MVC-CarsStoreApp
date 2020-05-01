@@ -9,7 +9,6 @@ namespace CarsStore.Models
     {
         public int Id { get; set; }
         public string CommentText { get; set; }
-        public DateTime Date { get; set; }
         public virtual Publication Publication { get; set; }
         public virtual Client Client { get; set; }
     }

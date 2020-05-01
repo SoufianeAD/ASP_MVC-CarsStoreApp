@@ -8,8 +8,6 @@ namespace CarsStore.Models
     public class Publication
     {
         public int Id { get; set; }
-        public DateTime PublishDate { get; set; }
-        public DateTime EndDate { get; set; }
         public string Status { get; set; }//open or closed
         public virtual Vehicule Vehicule { get; set; }
     }

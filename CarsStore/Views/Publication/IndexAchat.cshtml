@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CarsStore.Models.Achat>
+
+<p>
+    @Html.ActionLink("Back", "IndexClient")
+</p>
+
+<h2>Liste des achats:</h2>
+
+@foreach (var item in Model)
+{
+    <div class="card mx-auto mb-3" style="width: 60%;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <img src="@Url.Content(String.Format("~/resources/vehicules/{0}", item.Vehicule.MainPicture))" style="width: 150px; height: 120px;" class="rounded" />
+                </div>
+                <div class="col mt-3">
+                    <h6><b>Company : </b>@item.Vehicule.Company</h6>
+                    <h6><b>Model : </b>@item.Vehicule.Model</h6>
+                    <h6><b>Engine : </b>@item.Vehicule.Engine</h6>
+                </div>
+                <div class="col mt-3">
+                    <h6><b>Power : </b>@item.Vehicule.Power hr</h6>
+                    <h6><b>Price : </b>@item.Vehicule.Price €</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+}

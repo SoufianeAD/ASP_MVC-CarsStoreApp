@@ -1,36 +1,69 @@
 ﻿@model CarsStore.Models.Publication
+@{
+    String[] pictures = ViewData["pictures"] as String[];
+}
 
-<div>
-    <h4>Publication</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PublishDate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublishDate)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-    </dl>
+<div class="container border mx-auto">
+    <div class="row">
+        <div class="col">
+            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4" class=""></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item">
+                        <img class="card-img-top" src="@Url.Content(String.Format("~/resources/vehicules/{0}", Model.Vehicule.MainPicture))" alt="First slide">
+                    </div>
+                    <div class="carousel-item active">
+                        <img class="card-img-top" src="@Url.Content(String.Format("~/resources/vehicules/{0}", pictures[0]))" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="card-img-top" src="@Url.Content(String.Format("~/resources/vehicules/{0}", pictures[1]))" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="card-img-top" src="@Url.Content(String.Format("~/resources/vehicules/{0}", pictures[2]))" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="card-img-top" src="@Url.Content(String.Format("~/resources/vehicules/{0}", pictures[3]))" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only primary">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- info -->
+        <div class="col col-md-5 align-self-center">
+            <div class="" style="margin-left: 15%;">
+                <h4><b>Company : </b>@Model.Vehicule.Company</h4>
+                <h4><b>Model : </b>@Model.Vehicule.Model</h4>
+                <h4><b>Engine : </b>@Model.Vehicule.Engine</h4>
+                <h4><b>Power : </b>@Model.Vehicule.Power hr</h4>
+                <h4><b>Price : </b>@Model.Vehicule.Price €</h4>
+                <p class="mt-3">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
