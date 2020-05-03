@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<CarsStore.Models.Publication>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
+    <div class="mb-4" style="margin-left: 20%;">
+        <a href="@Url.Action("Create", "Publication")" class="btn btn-primary mt-5">Create</a>
+    </div>
 
 @foreach (var item in Model)
 {

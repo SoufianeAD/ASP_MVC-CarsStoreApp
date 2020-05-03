@@ -25,6 +25,7 @@ namespace CarsStore.Controllers
             return RedirectToAction("IndexAchat");
         }
 
+        [Authorize(Roles = "Client")]
         public ActionResult IndexAchat()
         {
             string email = System.Web.HttpContext.Current.User.Identity.Name.ToString();
@@ -90,6 +91,7 @@ namespace CarsStore.Controllers
         }
 
         // GET: Publication/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.vehicules = db.Vehicules;

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace CarsStore.Controllers
 {
     using Models;
+    [Authorize(Roles = "Admin")]
     public class VehiculeController : Controller
     {
         Model1 db = new Model1();
@@ -28,6 +29,7 @@ namespace CarsStore.Controllers
         }
 
         // GET: Vehicule/Create
+
         public ActionResult Create()
         {
             return View();

@@ -5,17 +5,40 @@
     {
     @Html.AntiForgeryToken()
 
+    
     <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Menu
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#"></a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Home</a>
-            </div>
-        </li>
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="@Url.Action("Index", "Client")">
+                    Clients
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="@Url.Action("Index", "Vehicule")">
+                    Vehicules
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="@Url.Action("Index", "Publication")">
+                    Publications
+                </a>
+            </li>
+        }
+        else if (User.IsInRole("Client"))
+        {
+
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="@Url.Action("IndexClient", "Publication")">
+                    Publication
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="@Url.Action("IndexAchat", "Publication")">
+                    Cart
+                </a>
+            </li>
+        }
         <li class="nav-item">
             <button class="btn" style="background-color: transparent;">
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })

@@ -14,6 +14,7 @@ namespace CarsStore.Controllers
         Model1 db = new Model1();
 
         // GET: Client
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Clients);

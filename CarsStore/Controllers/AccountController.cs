@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CarsStore.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CarsStore.Controllers
 {
@@ -17,6 +18,7 @@ namespace CarsStore.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db0 = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -79,7 +81,7 @@ namespace CarsStore.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index", "Publication");
+                    return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -139,6 +141,8 @@ namespace CarsStore.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ApplicationDbContext db0 = new ApplicationDbContext();
+            ViewBag.roles = db0.Roles.ToList();
             return View();
         }
 
@@ -147,16 +151,19 @@ namespace CarsStore.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, string role)
         {
-            if (ModelState.IsValid)
+                if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+                    await this.UserManager.AddToRoleAsync(user.Id, roleManager.FindById(role).Name);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
